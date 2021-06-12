@@ -1,8 +1,14 @@
 import React from 'react'
+import MainLayout from "../../layouts/MainLayout"
 
 const Index = () => {
     return (
-        <div>Tracks</div>
+      <>
+        <MainLayout>
+
+          <h1>Tracks</h1>
+        </MainLayout>
+      </>
     )
 }
 
