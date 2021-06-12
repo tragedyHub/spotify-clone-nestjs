@@ -1,8 +1,8 @@
-import { TrackService } from './../track/track.service';
+import { FileService } from './file.service';
 import { Module } from "@nestjs/common";
 
 @Module({
-    providers: [TrackService]
+    providers: [FileService]
 })
 export class FileModule {
 
