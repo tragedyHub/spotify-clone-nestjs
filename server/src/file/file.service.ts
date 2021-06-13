@@ -1,4 +1,4 @@
-import { HttpException, HttpStatus, Injectable, PreconditionFailedException } from "@nestjs/common";
+import {HttpException, HttpStatus, Injectable} from "@nestjs/common";
 import * as path from 'path'
 import * as fs from 'fs'
 import * as uuid from 'uuid'
@@ -8,11 +8,10 @@ export enum FileType {
     IMAGE = 'image'
 }
 
-
 @Injectable()
-export class FileService {
+export class FileService{
 
-    createFile(type: FileType, file) {
+    createFile(type: FileType, file): string {
         try {
             const fileExtension = file.originalname.split('.').pop()
             const fileName = uuid.v4() + '.' + fileExtension
@@ -22,9 +21,13 @@ export class FileService {
             }
             fs.writeFileSync(path.resolve(filePath, fileName), file.buffer)
             return type + '/' + fileName
-        } catch (error) {
-            throw new HttpException(error.message, HttpStatus.INTERNAL_SERVER_ERROR)
+        } catch (e) {
+            throw new HttpException(e.message, HttpStatus.INTERNAL_SERVER_ERROR)
         }
     }
-    removeFile(fileName: string) {}
+
+    removeFile(fileName: string) {
+
+    }
+
 }
