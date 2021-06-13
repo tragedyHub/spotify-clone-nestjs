@@ -1,15 +1,17 @@
-import { Grid, Box } from '@material-ui/core'
-import React from 'react'
-import { ITrack } from '../types/track'
-import TrackItem from './TrackItem'
+import React from 'react';
+import {ITrack} from "../types/track";
+import {Box, Grid} from "@material-ui/core";
+import {Book} from "@material-ui/icons";
+import TrackItem from "./TrackItem";
 
 interface TrackListProps {
     tracks: ITrack[]
 }
 
 const TrackList: React.FC<TrackListProps> = ({tracks}) => {
+
     return (
-        <Grid>
+        <Grid container direction="column">
             <Box p={2}>
                 {tracks.map(track =>
                     <TrackItem
@@ -19,7 +21,7 @@ const TrackList: React.FC<TrackListProps> = ({tracks}) => {
                 )}
             </Box>
         </Grid>
-    )
-}
+    );
+};
 
-export default TrackList
+export default TrackList;

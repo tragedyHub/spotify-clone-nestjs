@@ -1,19 +1,20 @@
-import { ITrack } from './track';
+import {ITrack} from "./track";
+
 export interface PlayerState {
-    active: null | ITrack
-    volume: number
-    duraction: number
-    currentTime: number
-    pause: boolean
+    active: null | ITrack;
+    volume: number;
+    duration: number;
+    currentTime: number;
+    pause: boolean;
 }
 
 export enum PlayerActionTypes {
-    PLAY = 'PLAY',
-    PAUSE = 'PAUSE',
-    SET_ACTIVE = 'SET_ACTIVE',
-    SET_DURACTION = 'SET_DURACTION',
-    SET_CURRENT_TIME = 'SET_CURRENT_TIME',
-    SET_VOLUME = 'SET_VOLUME',
+    PLAY = "PLAY",
+    PAUSE = "PAUSE",
+    SET_ACTIVE = "SET_ACTIVE",
+    SET_DURATION = "SET_DURATION",
+    SET_CURRENT_TIME = "SET_CURRENT_TIME",
+    SET_VOLUME = "SET_VOLUME",
 }
 
 interface PlayAction {
@@ -22,31 +23,27 @@ interface PlayAction {
 interface PauseAction {
     type: PlayerActionTypes.PAUSE
 }
-
 interface SetActiveAction {
-    type: PlayerActionTypes.SET_ACTIVE
-    payload: ITrack
+    type: PlayerActionTypes.SET_ACTIVE,
+    payload: ITrack;
 }
-
-interface SetDuractionAction {
-    type: PlayerActionTypes.SET_DURACTION
-    payload: number
+interface SetDurationAction {
+    type: PlayerActionTypes.SET_DURATION,
+    payload: number;
 }
-
 interface SetVolumeAction {
-    type: PlayerActionTypes.SET_VOLUME
-    payload: number
+    type: PlayerActionTypes.SET_VOLUME,
+    payload: number;
 }
-
 interface SetCurrentTimeAction {
-    type: PlayerActionTypes.SET_CURRENT_TIME
-    payload: number
+    type: PlayerActionTypes.SET_CURRENT_TIME,
+    payload: number;
 }
 
-export type PlayerAction = 
+export type PlayerAction =
     PlayAction
     | PauseAction
     | SetActiveAction
-    | SetDuractionAction
+    | SetDurationAction
     | SetVolumeAction
     | SetCurrentTimeAction
